@@ -1,11 +1,11 @@
-package com.kpi.repository;
+package com.kpidashboardspring.kpi.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.kpi.model.Inflation;
+import com.kpidashboardspring.kpi.model.Inflation;
 
 public interface InflationRepository extends JpaRepository<Inflation, Long> {
 

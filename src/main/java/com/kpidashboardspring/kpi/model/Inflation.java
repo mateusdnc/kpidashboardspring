@@ -1,4 +1,4 @@
-package com.kpi.model;
+package com.kpidashboardspring.kpi.model;
 
 import java.math.BigDecimal;
 
@@ -19,16 +19,16 @@ public class Inflation {
     @GeneratedValue
     @Column(name = "Inflation_IDE",updatable = false, nullable = false)
     Long inflationIDE;
-    
+
     @Column(name = "Country")
     String country;
-    
+
     @Column(name = "CountryCode")
     String countryCode;
-    
+
     @Column(name = "Year")
     Integer year;
-    
+
     @Column(name = "Inflation")
     BigDecimal inflation;
 }

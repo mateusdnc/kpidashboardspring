@@ -1,4 +1,4 @@
-package com.kpi.service;
+package com.kpidashboardspring.kpi.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kpi.model.Inflation;
-import com.kpi.repository.InflationRepository;
+import com.kpidashboardspring.kpi.model.Inflation;
+import com.kpidashboardspring.kpi.repository.InflationRepository;
 
 @Service
 @Transactional

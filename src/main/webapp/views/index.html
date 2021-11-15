@@ -18,26 +18,24 @@
 	padding: 20;
 	border-radius: 10px;
 	border-color: darkblue;
-	/* height: 400px; */
+	/* height: 400px; */;
 }
 
 body {
 	background-color: #2b313d;
 }
 </style>
-
-<body>
-	<div class="container">
-		<div class="row" style="background-color: #374256">
-			<div class="row" style="background-color: #374256">
-				<div class="col my-5">
-					<div class="myChartdiv">
-						<canvas id="myChart"></canvas>
-					</div>
-				</div>
+<div class="container">
+    <div class="row" style="background-color: #374256">
+        <div class="col mx-auto" >
+            <div class="myChartdiv" >
+				<canvas id="myChart"></canvas>
 			</div>
-		</div>
-	</div>
+        </div>
+    </div>
+</div>
+<body>
+
 </body>
 <script>
 	var inflationLabels = '';
@@ -86,17 +84,15 @@ body {
 			datasets : [ {
 				type : 'line',
 				label : 'Inflação Argentina',
-				borderColor : 'blue',
+				borderColor : 'white',
 				data : inflationWLDData,
 				tension : 0.3
 			}, {
-				type : 'bar',
+				type : 'line',
 				label : 'Inflação Brasil',
-				backgroundColor : [ 'green',
-
-				],
-				borderRadius : 5,
-				data : inflationBRAData
+				borderColor : 'yellow',
+				data : inflationBRAData,
+				tension : 0.3
 			},
 
 			]
