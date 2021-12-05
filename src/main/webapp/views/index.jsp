@@ -18,15 +18,30 @@
 body {
 	background-color: #2b313d;
 }
+
+.background {
+	background-color: #2b313d;
+}
 </style>
 <body>
-	<div class="container">
-		<div class="row" style="background-color: #374256">
-			<div class="col mx-auto">
-				<div class="myChartdiv">
-					<%@include file="kpi/inflationBra.html"%>
+
+	<div class="container-fluid background py-5">
+		<div class="container py-3">
+			<h2 class="text-white text-center py-3">Indice de Inflação</h2>
+
+			<div class="col-sm">
+				<div class="row justify-content-center">
+					<a class="text-white mx-3">Paises</a> 
+					<select></select>
 				</div>
+
+			</div>
+		</div>
+		<div class="container">
+			<div class="myChartdiv">
+				<%@include file="kpi/inflationBra.html"%>
 			</div>
 		</div>
 	</div>
+
 </body>
