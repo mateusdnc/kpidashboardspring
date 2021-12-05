@@ -2,6 +2,7 @@ package com.kpidashboardspring.kpi.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -9,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.JsonArray;
 import com.kpidashboardspring.kpi.model.Inflation;
 import com.kpidashboardspring.kpi.repository.InflationRepository;
 
@@ -35,27 +37,10 @@ public class InflationService {
         inflationRepository.deleteById(id);
     }
     
-    public List<Integer> getInflationYear(){
-    	List<Integer> years = new ArrayList<Integer>();
-		for (Inflation inflation : inflationRepository.getInflationBRA()) {
-			years.add(inflation.getYear());
-		}
-    	return years;
-    }
+
     
-    public List<BigDecimal> getInflationBRA(){
-    	List<BigDecimal> inflations = new ArrayList<BigDecimal>();
-		for (Inflation inflation : inflationRepository.getInflationBRA()) {
-			inflations.add(inflation.getInflation());
-		}
-    	return inflations;
-    }
-    
-    public List<BigDecimal> getInflationARG(){
-    	List<BigDecimal> inflations = new ArrayList<BigDecimal>();
-		for (Inflation inflation : inflationRepository.getInflationARG()) {
-			inflations.add(inflation.getInflation());
-		}
-    	return inflations;
+    public List<Inflation> getInflationKPIData() {
+    	return inflationRepository.getInflationBRA();
+		
     }
 }

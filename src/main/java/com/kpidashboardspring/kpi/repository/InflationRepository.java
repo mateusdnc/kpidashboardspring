@@ -9,9 +9,6 @@ import com.kpidashboardspring.kpi.model.Inflation;
 
 public interface InflationRepository extends JpaRepository<Inflation, Long> {
 
-	@Query(value = "SELECT * FROM test.inflation where CountryCode = 'ARG'", nativeQuery = true)
-	List<Inflation> getInflationARG();
-	
 	@Query(value = "SELECT * FROM test.inflation where CountryCode = 'BRA'", nativeQuery = true)
 	List<Inflation> getInflationBRA();
 		
