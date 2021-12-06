@@ -5,22 +5,32 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/views/kpi/js/inflationBra.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+
 </head>
 
 <style>
-body {
-	background-color: #2b313d;
+.myChartdiv {
+	background-color: #3c4c66;
+	border-width: 50;
+	padding: 20;
+	border-radius: 10px;
+	border-color: #2b113d;
 }
 
 .background {
-	background-color: #2b313d;
+	background-color: #EFF7F6;
 }
 </style>
 <body>
@@ -31,17 +41,59 @@ body {
 
 			<div class="col-sm">
 				<div class="row justify-content-center">
-					<a class="text-white mx-3">Paises</a> 
-					<select></select>
+					<a class="text-white mx-3">Paises</a> <select></select>
 				</div>
 
 			</div>
 		</div>
 		<div class="container">
-			<div class="myChartdiv">
-				<%@include file="kpi/inflationBra.html"%>
+			<div id="myChartdiv">
+				<canvas class="m-3" id="myChart"></canvas>
+			</div>
+
+			<div>
+				<table id="table_id" class="table table-striped">
+					<thead>
+						<tr>
+							<th>inflationIDE</th>
+							<th>country</th>
+							<th>countryCode</th>
+							<th>year</th>
+							<th>inflation</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+
 			</div>
 		</div>
 	</div>
 
 </body>
+
+<script>
+	$(document).ready(function() {
+		$('#table_id').DataTable({
+			ajax : {
+				url : 'http://localhost:8082/kpi/getInflationKPIData',
+				dataSrc : ''
+			},
+			columns : [ {
+				data : 'inflationIDE'
+			}, {
+				data : 'country'
+			}, {
+				data : 'countryCode'
+			}, {
+				data : 'year'
+			}, {
+				data : 'inflation'
+			}, ]
+		});
+	});
+
+	$(window).on('load', function() {
+		buildChart();
+	});
+</script>
