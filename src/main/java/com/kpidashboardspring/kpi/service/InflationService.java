@@ -1,8 +1,5 @@
 package com.kpidashboardspring.kpi.service;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,8 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.gson.JsonArray;
 import com.kpidashboardspring.kpi.model.Inflation;
+import com.kpidashboardspring.kpi.repository.FilterRepository;
 import com.kpidashboardspring.kpi.repository.InflationRepository;
 
 @Service
@@ -20,6 +17,9 @@ public class InflationService {
  
     @Autowired
     private InflationRepository inflationRepository;
+    
+    @Autowired
+    private FilterRepository filterRepository;
      
     public List<Inflation> listAll() {
         return inflationRepository.findAll();
@@ -37,6 +37,9 @@ public class InflationService {
         inflationRepository.deleteById(id);
     }
     
+    public List<String> getCountryList(){
+    	return filterRepository.getCountryList();
+    }
 
     
     public List<Inflation> getInflationKPIData() {

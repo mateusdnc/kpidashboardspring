@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
 
@@ -41,7 +42,15 @@
 
 			<div class="col-sm">
 				<div class="row justify-content-center">
-					<a class="text-white mx-3">Paises</a> <select></select>
+					<a class="text-white mx-3">Paises</a>
+					<div>
+						<select>
+							<c:forEach var="country" items="${countryList}">
+								<option>${country}</option>
+							</c:forEach>
+						</select>
+					</div>
+
 				</div>
 
 			</div>
@@ -73,6 +82,9 @@
 </body>
 
 <script>
+
+console.log(${countryList});
+
 	$(document).ready(function() {
 		$('#table_id').DataTable({
 			ajax : {
