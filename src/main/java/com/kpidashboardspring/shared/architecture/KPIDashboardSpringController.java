@@ -15,7 +15,6 @@ public class KPIDashboardSpringController {
 	
 	@GetMapping("/")
 	public String index(Model model) {
-	System.out.print(inflationService.getCountryList());
 		model.addAttribute("countryList", inflationService.getCountryList());
 		return "index";
 	}

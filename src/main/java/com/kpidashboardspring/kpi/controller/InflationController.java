@@ -28,12 +28,6 @@ public class InflationController {
 		return inflationService.getInflationKPIData();
 	}
 	
-	@GetMapping("/teste")
-	@ResponseBody
-	List<String> getCountry(){
-		return inflationService.getCountryList();
-	}
-	
 	@GetMapping("/inflationBra")
 	public String getInflationBra() {
 		
