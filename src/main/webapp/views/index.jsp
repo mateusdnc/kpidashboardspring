@@ -83,8 +83,6 @@
 
 <script>
 
-console.log(${countryList});
-
 	$(document).ready(function() {
 		$('#table_id').DataTable({
 			ajax : {
